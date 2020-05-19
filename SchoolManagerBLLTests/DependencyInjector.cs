@@ -13,7 +13,7 @@ namespace SchoolManagerBLLTests
         private static IServiceProvider GetServiceProvider()
         {
             IConfigurationRoot config = new ConfigurationBuilder()
-                  .AddJsonFile("appconfig.json")
+                  .AddJsonFile("appsettings.json")
                   .Build();
             string connectionStr = config.GetConnectionString("DefaultConnection");
 
