@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=DESKTOP-UUK4JM4\\SQLEXPRESS;Initial Catalog=SchoolManager3;Integrated Security=True"
+  }
+}

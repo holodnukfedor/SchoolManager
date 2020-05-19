@@ -1,0 +1,27 @@
+﻿@model PaginationInfo
+
+@if (@Model.PageCount > 1)
+{
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            @if (Model.PageCount < 10)
+            {
+                for (var i = 1; i <= Model.PageCount; ++i)
+                {
+                    @Html.PaginationBtn(Model, i)
+                }
+            }
+            else
+            {
+                @Html.PaginationBtn(Model, 1)
+                @Html.PaginationBtnPrev(Model, Model.PageNumber - 3)
+                for (int i = Model.PageNumber - 2; i < Model.PageNumber + 3; i++)
+                {
+                    @Html.PaginationBtn(Model, i)
+                }
+                @Html.PaginationBtnNext(Model, Model.PageNumber + 3)
+                @Html.PaginationBtn(Model, Model.PageCount)
+            }
+        </ul>
+    </nav>
+}
