@@ -31,7 +31,7 @@ namespace SchoolManagerBLL
             ThrowExIfStudentInvalid(student);
             using (IDisposable connection = _schoolManagerDb.OpenConnection())
             {
-                _schoolManagerDb.StudentRepository.Edit(AutoMapperConfigurer.Mapper.Map<Student>(student));
+                _schoolManagerDb.StudentRepository.Edit(AutoMapperConfigurer.Mapper.Value.Map<Student>(student));
             }
         }
 
@@ -56,7 +56,7 @@ namespace SchoolManagerBLL
             ThrowExIfStudentInvalid(student);
             using (IDisposable connection = _schoolManagerDb.OpenConnection())
             {
-                int id =_schoolManagerDb.StudentRepository.Create(AutoMapperConfigurer.Mapper.Map<Student>(student));
+                int id =_schoolManagerDb.StudentRepository.Create(AutoMapperConfigurer.Mapper.Value.Map<Student>(student));
                 return new StudentDTO(id, student.FirstName, student.LastName, student.Patronymic, student.Phone, student.ClassId);
             }
         }

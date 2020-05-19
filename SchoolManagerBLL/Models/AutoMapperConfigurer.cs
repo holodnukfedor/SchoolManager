@@ -1,20 +1,21 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using SchoolManagerDAL;
 
 namespace SchoolManagerBLL
 {
     public class AutoMapperConfigurer
     {
-        public static IMapper Mapper { get; }
+        public static Lazy<IMapper> Mapper = new Lazy<IMapper>(GetAutoMapper);
 
-        static AutoMapperConfigurer()
+        private static IMapper GetAutoMapper()
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Student, StudentDTO>();
                 cfg.CreateMap<StudentDTO, Student>();
             });
-            Mapper = config.CreateMapper();
+            return config.CreateMapper();
         }
     }
 }
